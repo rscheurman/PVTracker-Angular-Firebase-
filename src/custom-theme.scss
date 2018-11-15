@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// Custom Color Choices
+$custom-theme-primary: mat-palette($mat-deep-orange, 600);
+$custom-theme-accent: mat-palette($mat-blue, 700);
+$custom-theme-warn: mat-palette($mat-red, A400);
+
+// Inject Colors to Theme
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+// Send Theme to Angular
+@include angular-material-theme($custom-theme);
