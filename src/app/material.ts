@@ -6,7 +6,8 @@ import {
 	MatSliderModule,
 	MatOptionModule,
 	MatSelectModule,
-	MatSlideToggleModule
+	MatSlideToggleModule,
+	MatCardModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 
@@ -19,7 +20,8 @@ import { NgModule } from '@angular/core';
 		MatSliderModule,
 		MatOptionModule,
 		MatSelectModule,
-		MatSlideToggleModule
+		MatSlideToggleModule,
+		MatCardModule
 	],
 	exports: [
 		MatButtonModule,
@@ -29,7 +31,8 @@ import { NgModule } from '@angular/core';
 		MatSliderModule,
 		MatOptionModule,
 		MatSelectModule,
-		MatSlideToggleModule
+		MatSlideToggleModule,
+		MatCardModule
 	]
 })
 export class MaterialModule {}

@@ -11,8 +11,17 @@ import { NavComponent } from './nav/nav.component';
 import { AddJumpsComponent } from './forms/add-jumps/add-jumps.component';
 import { AddLiftComponent } from './forms/add-lift/add-lift.component';
 
+import { AuthService } from "../../src/app/services/auth.service";
+
+// Firebase Configuration
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { HomeComponent } from './pages/home/home.component';
+
 @NgModule({
-	declarations: [ AppComponent, NavComponent, AddJumpsComponent, AddLiftComponent ],
+	declarations: [ AppComponent, NavComponent, AddJumpsComponent, AddLiftComponent, HomeComponent ],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -23,9 +32,12 @@ import { AddLiftComponent } from './forms/add-lift/add-lift.component';
 		MatButtonModule,
 		MatSidenavModule,
 		MatIconModule,
-		MatListModule
+		MatListModule,
+		AngularFireModule.initializeApp(environment.firebase),
+		AngularFireAuthModule,
+		AngularFirestoreModule
 	],
-	providers: [],
+	providers: [AuthService],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}
