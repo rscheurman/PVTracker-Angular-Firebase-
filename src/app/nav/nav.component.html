@@ -1,7 +1,13 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
-    <mat-toolbar>{{ afAuth.userName }}</mat-toolbar>
+    <ng-container *ngIf="afAuth.user; else elseTemplate">
+      <mat-toolbar>{{ afAuth.userName }}</mat-toolbar>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <mat-toolbar>Guest</mat-toolbar>
+    </ng-template>
+    
     <mat-nav-list>
       <a mat-list-item routerLink="/add-jump" routerLinkActive="router-link-active">
         <mat-icon class="mat-18">add</mat-icon>Jumpday
