@@ -1,54 +1,91 @@
 <div class="container">
-	<mat-list>
-		<mat-list-item>Run and Pole</mat-list-item>
-		<mat-divider></mat-divider>
-		<div class="row">
-			<mat-slider min='1' max='10' thumbLabel tickInterval='1'></mat-slider>
-		</div>
-		<div class="row">
-			<mat-form-field>
-				<mat-select placeholder="Feet">
-					<mat-option *ngFor="let feet of PoleFeetLength" [value]='feet'>{{ feet }}</mat-option>
-				</mat-select>
-			</mat-form-field>
-			<mat-form-field>
-				<mat-select placeholder="Inch">
-					<mat-option *ngFor="let inch of PoleInchLength" [value]='inch'>{{ inch }}</mat-option>
-				</mat-select>
-			</mat-form-field>
-			<mat-form-field>
-				<input type="number" matInput placeholder="Runway Mark">
-			</mat-form-field>
-			<div class="row">
-				<mat-slider thumbLabel tickInterval="1" min="1" max="10" aria-placeholder="Run Steps"></mat-slider>
-
-			</div>
-			<mat-list-item>Ques and Clearence</mat-list-item>
-			<mat-divider></mat-divider>
-			<div class="row">
-				<mat-form-field class="three-quarter">
-					<textarea matInput placeholder="Mental Ques"></textarea>
-				</mat-form-field>
-			</div>
-			<div class="row">
-				<mat-slide-toggle>Was this a clearance?</mat-slide-toggle>
-			</div>
-			<div class="row">
-				<mat-form-field class="three-quarter">
-					<input type="number" matInput placeholder="Height of Clearance?">
-				</mat-form-field>
-			</div>
-			<div class="row">
-				<mat-slide-toggle>Good or Bad Jump</mat-slide-toggle>
-			</div>
-			<div class="row">
-				<mat-form-field class="three-quarter">
-					<textarea matInput placeholder="Why?"></textarea>
-				</mat-form-field>
-			</div>
-			<div class="row">
-				<button (click)="onAdd()" mat-raised-button color="accent">Add</button>
-			</div>
-		</div>
-	</mat-list>
+  <mat-list>
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <mat-list-item>Run and Pole</mat-list-item>
+      <mat-divider></mat-divider>
+      <div class="row">
+        <mat-slider min="1" max="10" thumbLabel tickInterval="1" ngModel name="runSteps"></mat-slider>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <mat-select placeholder="Feet" name="feet" ngModel required>
+            <mat-option *ngFor="let feet of PoleFeetLength" [value]="feet">{{
+              feet
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Inch" ngModel name="inch" required>
+            <mat-option *ngFor="let inch of PoleInchLength" [value]="inch">{{
+              inch
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            type="number"
+            name="runwayMark"
+            ngModel
+            matInput
+            placeholder="Runway Mark"
+          />
+        </mat-form-field>
+        <div class="row">
+          <mat-slider
+            thumbLabel
+            tickInterval="1"
+            min="1"
+            max="10"
+            aria-placeholder="Run Steps"
+            ngModel
+            name="runSteps"
+          ></mat-slider>
+        </div>
+        <mat-list-item>Ques and Clearence</mat-list-item>
+        <mat-divider></mat-divider>
+        <div class="row">
+          <mat-form-field class="three-quarter">
+            <textarea
+              matInput
+              placeholder="Mental Ques"
+              ngModel
+              name="mentalQues"
+            ></textarea>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-slide-toggle>Was this a clearance?</mat-slide-toggle>
+        </div>
+        <div class="row">
+          <mat-form-field class="three-quarter">
+            <input
+              type="number"
+              matInput
+              placeholder="Height of Clearance?"
+              ngModel
+              name="clearanceHeight"
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-slide-toggle>Good or Bad Jump</mat-slide-toggle>
+        </div>
+        <div class="row">
+          <mat-form-field class="three-quarter">
+            <textarea
+              matInput
+              placeholder="Why?"
+              ngModel
+              name="clearanceExplain"
+            ></textarea>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <button mat-raised-button color="accent" [disabled]="!f.valid">
+            Add
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-list>
 </div>

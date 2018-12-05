@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 export interface Jump {}
 
@@ -8,8 +9,9 @@ export interface Jump {}
 	styleUrls: [ './add-jumps.component.scss' ]
 })
 export class AddJumpsComponent implements OnInit {
+	@ViewChild("f") addJumpForm: NgForm
 	PoleFeetLength = [ 10, 11, 12, 13, 14, 15, 16 ];
-	PoleInchLength = [ 5, 6, 7, 8 ];
+	PoleInchLength = [ 0, 5, 6, 7, 8 ];
 
 	// Form Data
 	value: string;
@@ -19,6 +21,8 @@ export class AddJumpsComponent implements OnInit {
 
 	ngOnInit() {}
 
-	onAdd() {
+	onSubmit() {
+		console.log(this.addJumpForm)
+		
 	}
 }
