@@ -1,20 +1,26 @@
 <div class="container">
-
-  <ng-template *ngIf="!fbAuth.authenticated">
+  <ng-template [ngIf]="!fbAuth.authenticated">
     <mat-card class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>Welcome to PVTracker</mat-card-title>
-        <mat-card-subtitle>Artificial Intelligence Powered Pole Vaulting</mat-card-subtitle>
+        <mat-card-subtitle
+          >Artificial Intelligence Powered Pole Vaulting</mat-card-subtitle
+        >
       </mat-card-header>
-      <img mat-card-image src="../../../assets/pv.jpg" alt="Artificial Intelligence Powered Pole Vaulting">
+      <img
+        mat-card-image
+        src="../../../assets/pv.jpg"
+        alt="Artificial Intelligence Powered Pole Vaulting"
+      />
       <mat-card-content>
         <p>
-          Welcome to a 21st century approach to Pole Vaulting. To start tracking your jumps and workouts login.
+          Welcome to a 21st century approach to Pole Vaulting. To start tracking
+          your jumps and workouts login.
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)='fbAuth.login()'>Login</button>
+        <button mat-button (click)="fbAuth.login()">Login</button>
       </mat-card-actions>
     </mat-card>
   </ng-template>
@@ -26,14 +32,20 @@
         <mat-card-title>{{ homeMessage.title }}</mat-card-title>
         <mat-card-subtitle>{{ homeMessage.subtitle }}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="../../../assets/pv2.JPG" alt="Start recording your workouts and jumpdays">
+      <img
+        mat-card-image
+        src="../../../assets/pv2.JPG"
+        alt="Start recording your workouts and jumpdays"
+      />
       <mat-card-content>
-        <p>
-          {{ homeMessage.body }}
-        </p>
+        <p>{{ homeMessage.body }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button [routerLink]="['/add-jump']" routerLinkActive="router-link-active">
+        <button
+          mat-button
+          [routerLink]="['/add-jump']"
+          routerLinkActive="router-link-active"
+        >
           <mat-icon class="mat-18">add</mat-icon>Jump
         </button>
         <button mat-button>
@@ -41,7 +53,5 @@
         </button>
       </mat-card-actions>
     </mat-card>
-
   </ng-template>
-
 </div>
