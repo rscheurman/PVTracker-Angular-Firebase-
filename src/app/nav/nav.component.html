@@ -1,35 +1,55 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
-    <ng-container *ngIf="afAuth.user; else elseTemplate">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+  >
+    <ng-container *ngIf="afAuth.fbUser; else: elseTemplate">
       <mat-toolbar>{{ afAuth.userName }}</mat-toolbar>
     </ng-container>
-    <ng-template #elseTemplate>
-      <mat-toolbar>Guest</mat-toolbar>
-    </ng-template>
-    
+    <ng-template #elseTemplate> <mat-toolbar>Guest</mat-toolbar> </ng-template>
+
     <mat-nav-list>
-      <a mat-list-item routerLink="/add-jump" routerLinkActive="router-link-active">
+      <a
+        mat-list-item
+        routerLink="/add-jump"
+        routerLinkActive="router-link-active"
+      >
         <mat-icon class="mat-18">add</mat-icon>Jumpday
       </a>
       <a mat-list-item href="#">
         <mat-icon class="mat-18">add</mat-icon>Workout
       </a>
-      <a mat-list-item *ngIf="!afAuth.authenticated" (click)="afAuth.login()">Login</a>
-      <a mat-list-item *ngIf="afAuth.authenticated" (click)="afAuth.logout()">Logout</a>
-
+      <a mat-list-item *ngIf="!afAuth.authenticated" (click)="afAuth.login()"
+        >Login</a
+      >
+      <a mat-list-item *ngIf="afAuth.authenticated" (click)="afAuth.logout()"
+        >Logout</a
+      >
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="(isHandset$ | async)"
+      >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]='{exact: true}'>PVTracker</span>
+      <span
+        [routerLink]="['/']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >PVTracker</span
+      >
     </mat-toolbar>
     <!-- Put Cotent Here -->
     <router-outlet></router-outlet>
-
-
   </mat-sidenav-content>
 </mat-sidenav-container>

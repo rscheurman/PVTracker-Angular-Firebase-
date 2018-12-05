@@ -7,6 +7,7 @@ import { formatDate } from "@angular/common";
 import { Jump } from "../forms/add-jumps/jump.model";
 import { Observable } from "rxjs";
 import { AuthService } from "./auth.service";
+import { MatSnackBar } from "@angular/material";
 
 @Injectable({ providedIn: "root" })
 export class JumpService {
@@ -14,7 +15,11 @@ export class JumpService {
   jumpCollection: AngularFirestoreCollection<Jump>;
   jump: Observable<Jump>;
 
-  constructor(public afs: AngularFirestore, public authService: AuthService) {
+  constructor(
+    public afs: AngularFirestore,
+    public authService: AuthService,
+    public snackBar: MatSnackBar
+  ) {
     // Get date
     this.jumpDate = formatDate(new Date(), "MM.dd.yyyy", "en");
     // End get get date
@@ -32,9 +37,11 @@ export class JumpService {
       .add(jump)
       .then(result => {
         console.log("Jump Uploaded");
+        this.snackBar.open("Jump Uploaded");
       })
       .catch(err => {
         console.log(err);
+        this.snackBar.open("Jump Failed To Upload " + err);
       });
   }
 }
