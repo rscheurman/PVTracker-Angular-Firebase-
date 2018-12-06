@@ -8,4 +8,5 @@ export interface Jump {
   clearanceHeight?: number;
   goodOrBad?: boolean;
   whyGoodOrBad?: string;
+  jumpDay: string;
 }

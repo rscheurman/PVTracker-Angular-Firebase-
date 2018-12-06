@@ -29,9 +29,10 @@ export class JumpService {
     this.jumpCollection = this.afs
       .collection("users")
       .doc(this.authService.uid)
-      .collection("jumpdays")
-      .doc(this.jumpDate)
       .collection("jumps");
+
+    // Add Date to Jump
+    jump.jumpDay = this.jumpDate;
 
     this.jumpCollection
       .add(jump)
