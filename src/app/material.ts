@@ -9,7 +9,8 @@ import {
   MatSlideToggleModule,
   MatCardModule,
   MatSnackBarModule,
-  MAT_SNACK_BAR_DEFAULT_OPTIONS
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatExpansionModule
 } from "@angular/material";
 import { NgModule } from "@angular/core";
 
@@ -24,7 +25,8 @@ import { NgModule } from "@angular/core";
     MatSelectModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule
   ],
   exports: [
     MatButtonModule,
@@ -36,7 +38,8 @@ import { NgModule } from "@angular/core";
     MatSelectModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 1500 } }

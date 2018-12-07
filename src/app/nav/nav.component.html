@@ -20,9 +20,18 @@
       >
         <mat-icon class="mat-18">add</mat-icon>Jumpday
       </a>
-      <a mat-list-item href="#">
-        <mat-icon class="mat-18">add</mat-icon>Workout
+      <a
+        mat-list-item
+        routerLink="/dashboard"
+        routerLinkActive="router-link-active"
+      >
+        Dashboard
       </a>
+      <!--
+        <a mat-list-item href="#">
+          <mat-icon class="mat-18">add</mat-icon>Workout
+        </a>
+      -->
       <a mat-list-item *ngIf="!afAuth.authenticated" (click)="afAuth.login()"
         >Login</a
       >
