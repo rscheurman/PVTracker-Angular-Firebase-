@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let jump of jumps | async">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ jump.jumpDay }}</mat-panel-title>
+        <mat-panel-description
+          >Run Step: {{ jump.runStep }} - Pole Length: {{ jump.poleFeet }}'{{
+            jump.poleInch
+          }}"</mat-panel-description
+        >
+      </mat-expansion-panel-header>
+      <p>Run Step: {{ jump.runStep }}</p>
+      <p>Pole Length: {{ jump.poleFeet }}'{{ jump.poleInch }}"</p>
+      <p>Runway Mark: {{ jump.runwayMark }}</p>
+      <p>Mental Ques: {{ jump.mentalQues }}</p>
+      <p *ngIf="jump.wasClearance">This Was A Clearance!</p>
+      <p *ngIf="jump.wasClearance">
+        This was a clearance of {{ jump.clearanceHeight }} feet
+      </p>
+      <p *ngIf="jump.goodOrBad">This Was A Good Jump!</p>
+      <p *ngIf="!jump.goodOrBad">This Was A Bad Jump!</p>
+      <p>Explanation: {{ jump.whyGoodOrBad }}</p>
+      <p>Date Of Jump: {{ jump.jumpDay }}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

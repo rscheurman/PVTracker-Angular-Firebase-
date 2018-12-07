@@ -10,24 +10,33 @@
           thumbLabel
           tickInterval="1"
           ngModel
-          name="runSteps"
+          name="runStep"
           required
         ></mat-slider>
       </div>
       <div class="row">
         <mat-form-field>
-          <mat-select placeholder="Feet" name="feet" ngModel>
+          <mat-select placeholder="Feet" name="poleFeet" ngModel>
             <mat-option *ngFor="let feet of PoleFeetLength" [value]="feet">{{
               feet
             }}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field>
-          <mat-select placeholder="Inch" ngModel name="inch">
+          <mat-select placeholder="Inch" ngModel name="poleInch">
             <mat-option *ngFor="let inch of PoleInchLength" [value]="inch">{{
               inch
             }}</mat-option>
           </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            type="number"
+            name="poleWeight"
+            ngModel
+            matInput
+            placeholder="Pole Weight(lbs.)"
+          />
         </mat-form-field>
         <mat-form-field>
           <input
@@ -68,7 +77,7 @@
         </div>
         <div class="row">
           <mat-slide-toggle ngModel name="goodOrBad"
-            >Good or Bad Jump</mat-slide-toggle
+            >Was this a good jump?</mat-slide-toggle
           >
         </div>
         <div class="row">
@@ -77,7 +86,7 @@
               matInput
               placeholder="Why?"
               ngModel
-              name="clearanceExplain"
+              name="whyGoodOrBad"
             ></textarea>
           </mat-form-field>
         </div>

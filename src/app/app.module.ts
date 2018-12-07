@@ -19,9 +19,10 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { HomeComponent } from './pages/home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-	declarations: [ AppComponent, NavComponent, AddJumpsComponent, AddLiftComponent, HomeComponent ],
+	declarations: [ AppComponent, NavComponent, AddJumpsComponent, AddLiftComponent, HomeComponent, DashboardComponent ],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
